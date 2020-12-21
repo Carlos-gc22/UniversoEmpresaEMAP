@@ -1,0 +1,15 @@
+-- Se desea saber que clientes están al día con los pagos --
+	   select id_pago,nombres,apellidos,sector_vive,nombre_mes,aano,nombre_pago,total from clientes
+	   join descrpago on id_pago=id_pagopk where nombre_pago='Pagado' order by nombres asc; 
+
+	-- Se desea saber que clientes están atrasado con los pagos --
+	   select id_pago,nombres,apellidos,sector_vive,nombre_mes,aano,nombre_pago,total from clientes
+	   join descrpago on id_pago=id_pagopk where nombre_pago='Deuda' order by nombres asc;
+
+	-- Se desea saber que cliente consume más agua --
+	   select numero_medidor,nombres,apellidos,sector_vive,consumo_agua,numero_lote from medidores
+	   join clientes on cedula_cliente=cedula_clientepk where consumo_agua>'3330M3' order by nombres asc;
+
+	-- Top de clientes que tienen convenio con la empresa --
+	    select nombres,apellidos,sector_vive,tiene_convenio,total_convenio from detallefacturas
+	   join clientes on cedula_cliente=cedula_clientepk where tiene_convenio='Sí' order by nombres asc; 
